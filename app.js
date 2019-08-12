@@ -1,8 +1,8 @@
 const chalk = require('chalk');
 const yargs = require('yargs');
-const getNotes = require('./notes');
+const notes = require('./notes');
 
-// Create note command
+// Add a file
 yargs.command({
   command: 'add',
   describe: 'To add note',
@@ -19,7 +19,7 @@ yargs.command({
     }
   },
   handler: function(argv) {
-    console.log('Adding a new file : ', argv.title, '\n', argv.body);
+    notes.addNotes(argv.title, argv.body);
   }
 });
 
